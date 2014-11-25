@@ -24,13 +24,22 @@ then
     echo "Merging $BRANCH_NAME into master..."
     git checkout master
     git merge --squash $BRANCH_NAME
-    git commit -m "Resolves #$BRANCH_NUMBER: Merging $BRANCH_NAME into master"
+    escaped_branch_name=$(echo $BRANCH_NAME | sed -e 's/[\/&]/\\&/g')
+    sed -i.bak "s/Squashed commit of the following:/Resolves #${BRANCH_NUMBER}: Merging ${escaped_branch_name} into master/" .git/SQUASH_MSG
+    rm .git/SQUASH_MSG.bak
+    git commit --no-edit
 
+    exit 0
     # Tag and archive branch
     git checkout $BRANCH_NAME
     git tag archive/$BRANCH_NAME $BRANCH_NAME
     git checkout master
     git branch -D $BRANCH_NAME
+
+    # Send stuff to remote
+    git push origin master
+    git push origin :$BRANCH_NAME
+    git push --tags
 
 else
     echo "Directory is not a git repository."
