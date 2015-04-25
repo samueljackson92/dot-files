@@ -53,10 +53,8 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-
-# You may need to manually set your language environment
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+# set your language environment
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
@@ -85,3 +83,7 @@ alias pdflatex='/usr/texbin/pdflatex'
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/scripts" # Add custom scripts directory 
+
+# added by travis gem
+[ -f /Users/samuel/.travis/travis.sh ] && source /Users/samuel/.travis/travis.sh
+

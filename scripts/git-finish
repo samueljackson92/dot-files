@@ -29,7 +29,6 @@ then
     rm .git/SQUASH_MSG.bak
     git commit --no-edit
 
-    exit 0
     # Tag and archive branch
     git checkout $BRANCH_NAME
     git tag archive/$BRANCH_NAME $BRANCH_NAME
