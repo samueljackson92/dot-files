@@ -87,3 +87,10 @@ export PATH="$PATH:$HOME/scripts" # Add custom scripts directory
 # added by travis gem
 [ -f /Users/samuel/.travis/travis.sh ] && source /Users/samuel/.travis/travis.sh
 
+
+alias build_blog="cd ~/git/samueljackson92.github.io.raw; jekyll build;cp -r ~/git/samueljackson92.github.io.raw/_site/* ~/git/samueljackson92.github.io;cd ~/git/samueljackson92.github.io;git add .;git commit -am 'Latest build.';git push"
+alias bb="build_blog"
+
+
+export PATH="$PATH:$HOME/Library/Android/sdk/tools"
+export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
