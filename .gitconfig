@@ -1,0 +1,15 @@
+[user]
+	name = Samuel Jackson
+	email = samuel.jackson@stfc.ac.uk
+[core]
+	autocrlf = true
+	safecrlf = false
+[alias]
+	co = checkout
+	br = branch
+	c = commit
+	st = status
+	unstage = reset HEAD --
+	undo = reset HEAD~	
+	l = log
+	lo = log --oneline
