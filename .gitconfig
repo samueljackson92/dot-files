@@ -1,17 +1,24 @@
+[core]
+	excludesfile = ~/.gitignore
+[github]
+	user = samueljackson92
+[ghi]
+	token = !security find-internet-password -a samueljackson92 -s github.com -l 'ghi token' -w
 [user]
 	name = Samuel Jackson
-	email = samuel.jackson@stfc.ac.uk
-[core]
-	autocrlf = true
-	safecrlf = false
+	email = samueljackson@outlook.com
 [alias]
 	co = checkout
-	br = branch
-	c = commit
+	cl = clang-format
+	ai = add --interactive
 	st = status
-	unstage = reset HEAD --
-	undo = reset HEAD~	
-	l = log
-	lo = log --oneline
-	dc = diff --cached
-	d = diff
+	c = commit
+        unstage = reset HEAD --
+        undo = reset HEAD~    
+        l = log
+        lo = log --oneline
+        dc = diff --cached
+        d = diff
+[push]
+	default = simple
+        
