@@ -13,3 +13,5 @@
 	undo = reset HEAD~	
 	l = log
 	lo = log --oneline
+	dc = diff --cached
+	d = diff
