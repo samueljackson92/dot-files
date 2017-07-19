@@ -6,11 +6,12 @@ if exists("b:current_syntax")
   finish
 endif
 
-syn keyword keywords NOT OR RETURN AND ALIAS
-syn keyword functions SLEEP PRINTEN EXITIF INQUIRE DEFINED BEGIN END ABS AS_STRING
+syn case ignore
+syn keyword keywords NOT OR AND IS FROM TO STEP FORWARD INCLUDE EXITIF RETURN ALIAS
 syn keyword blocks PROCEDURE IF ENDIF ENDPROCEDURE LOOP ENDLOOP FROM TO ELSE ELSEIF CASE IS ENDCASE
 syn keyword typemod LOCAL GLOBAL QUALIFIERS RESULT PARAMETERS
 syn keyword type REAL INTEGER
+syn keyword functions SLEEP PRINTEN INQUIRE DEFINED BEGIN END ABS AS_STRING PRINTISCN PRINTDN PRINTIN
 
 syn region str start='"' end='"'
 syn match comment "#.*$"
