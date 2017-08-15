@@ -14,7 +14,10 @@ call vundle#begin('$HOME/vimfiles/bundle/')
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-surround'
 Plugin 'nvie/vim-flake8'
+Plugin 'davidhalter/jedi-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -39,6 +42,31 @@ set expandtab
 " wildcard tab menu
 set wildchar=<Tab> wildmenu wildmode=full
 
+" Fix backspace on windows
+set backspace=2
+set backspace=indent,eol,start
+
+" Open a 'Open File' browser window
+command! Bo browse confirm e
+command! GREP :execute 'vimgrep '.expand('<cword>').' '.expand('%') | :copen | :cc
+
+" Remove trailing whitepsace
+autocmd BufWritePre *.py %s/\s\+$//e
+
+" Remap keys
+" --------------------------------------------------------------------------------------------
+let mapleader = "#"
+" paste from global insert after
+nmap <Leader>p "+gp
+" paste from global insert before
+nmap <Leader>P "+gP
+vmap x "_d
+
+
+" Instrument Controls Settings
+" --------------------------------------------------------------------------------------------
+let g:flake8_cmd="C:\\Instrument\\Apps\\Python\\Scripts\\flake8.exe"
+
 " Set syntax & filetype for epics
 augroup epics
     autocmd!
@@ -54,19 +82,3 @@ augroup genie
     autocmd BufNewFile,BufRead *.gcl set filetype=genie
     autocmd FileType genie setlocal commentstring=#\ %s
 augroup END
-
-" Fix backspace on windows
-set backspace=2
-set backspace=indent,eol,start
-
-" Open a 'Open File' browser window
-command! Bo browse confirm e
-
-" Remap keys
-" --------------------------------------------------------------------------------------------
-let mapleader = "#"
-" paste from global insert after
-nmap <Leader>p "+gp         
-" paste from global insert before
-nmap <Leader>P "+gP         
-vmap x "_d
