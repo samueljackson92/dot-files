@@ -3,9 +3,12 @@ dot-files
 
 Repo for my various dot files, config files and plugins. 
 
-### Addtional Software
+Link individual files with
+```
+ln src dest
+```
 
-Additional software used by these config files:
- - dmenu
- - pyflakes
- - clang
+Link folders with
+```
+cp -al src dest
+```
