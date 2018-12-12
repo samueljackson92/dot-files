@@ -1,5 +1,5 @@
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = /Users/samueljackson/.gitignore
 [github]
 	user = samueljackson92
 [ghi]
@@ -16,9 +16,12 @@
         unstage = reset HEAD --
         undo = reset HEAD~    
         l = log
-        lo = log --oneline
+        lo = log --pretty=oneline --abbrev-commit --graph --decorate 
         dc = diff --cached
         d = diff
+        update = commit --amend --no-verify --no-edit -a
 [push]
-	default = simple
+	default = current
         
+[credential]
+	helper = osxkeychain
