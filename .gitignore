@@ -6,4 +6,6 @@ Mantid-*includes
 .color_coded
 tags
 cscope.out
+cscope/*
 .DS_Store
+

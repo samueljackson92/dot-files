@@ -18,7 +18,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-surround'
-" Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -35,9 +34,6 @@ Plugin 'FelikZ/ctrlp-py-matcher'
 Plugin 'fisadev/vim-isort'
 Plugin 'mileszs/ack.vim'
 Plugin 'ludovicchabant/vim-gutentags'
-Plugin 'tell-k/vim-autoflake'
-Plugin 'andviro/flake8-vim'
-Plugin 'brookhong/cscope.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 " colorscheme
@@ -138,6 +134,9 @@ noremap <leader>/ :Commentary<cr>
 " remap for tag search
 noremap <leader>. :CtrlPBufTag<CR>
 noremap <c-b> :CtrlPBuffer<CR>
+noremap <leader>d :YcmCompleter GoToDeclaration<CR>
+noremap <leader>t :YcmCompleter GetDoc<CR>
+noremap <leader>r  :YcmCompleter GoToReferences<CR>
 
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
@@ -229,27 +228,6 @@ let g:vim_isort_map = '<C-i>'
 " flake8-vim
 " ------------------------------------------------------------------------------
 let g:PyFlakeOnWrite = 0
-
-" cscope.vim
-" ------------------------------------------------------------------------------
-nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
-nnoremap <leader>l :call ToggleLocationList()<CR>
-" s: Find this C symbol
-nnoremap  <leader>fs :call CscopeFind('s', expand('<cword>'))<CR>
-" g: Find this definition
-nnoremap  <leader>fg :call CscopeFind('g', expand('<cword>'))<CR>
-" d: Find functions called by this function
-nnoremap  <leader>fd :call CscopeFind('d', expand('<cword>'))<CR>
-" c: Find functions calling this function
-nnoremap  <leader>fc :call CscopeFind('c', expand('<cword>'))<CR>
-" t: Find this text string
-nnoremap  <leader>ft :call CscopeFind('t', expand('<cword>'))<CR>
-" e: Find this egrep pattern
-nnoremap  <leader>fe :call CscopeFind('e', expand('<cword>'))<CR>
-" f: Find this file
-nnoremap  <leader>ff :call CscopeFind('f', expand('<cword>'))<CR>
-" i: Find files #including this file
-nnoremap  <leader>fi :call CscopeFind('i', expand('<cword>'))<CR>
 
 " Generic editor settings
 " ------------------------------------------------------------------------------
