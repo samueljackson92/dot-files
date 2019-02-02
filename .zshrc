@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/samueljackson/.oh-my-zsh
+export ZSH=/Users/samuel/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -83,45 +83,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-#####################
-# Custom Config Stuff
-#####################
-source /etc/profile.d/conda.sh
-
-# This is here because of the stupid llvm doesn't play nice with
-# system clang requirement that OSX has.
-export PATH="/usr/local/opt/llvm/bin:$PATH"
-export PATH="/usr/local/opt/llvm/share/clang:$PATH"
-
-alias clang-tidy=/usr/local/opt/llvm/bin/clang-tidy
-alias clang-check=/usr/local/opt/llvm/bin/clang-check
-alias clang-rename=/usr/local/opt/llvm/bin/clang-rename
-alias ct="clang-tidy -checks='-*,performance-for-range-copy,performance-unnecessary-copy-initialization,modernize-use-override,modernize-use-nullptr,modernize-loop-convert,modernize-use-bool-literals,modernize-deprecated-headers,misc-*,-misc-unused-parameters'"
-alias ctb="git diff --name-only master HEAD | xargs -L1 clang-tidy -checks='-*,performance-for-range-copy,performance-unnecessary-copy-initialization,modernize-use-override,modernize-use-nullptr,modernize-loop-convert,modernize-use-bool-literals,modernize-deprecated-headers,misc-*,-misc-unused-parameters'"
-alias callgrind=valgrind –tool=callgrind –instr-atstart=no
-alias make-docs="./bin/MantidPlot.app/Contents/MacOS/MantidPlot -xq docs/runsphinx_html.py"
-
-eval $(/usr/libexec/path_helper -s)
-
-# ------------------------------------------------------
-# SCD Paths
-# ------------------------------------------------------
-
-export GPAW_SETUP_PATH=~/muon-data/gpaw-setups-0.9.20000
-export DFTB_COMMAND=~/dev/dftbplus-17.1/_build/prog/dftb+/dftb+
-export CASTEP_COMMAND=~/dev/CASTEP-16.12/bin/darwin_x86_64_gfortran6.0/castep.serial
-
-export PATH="/Users/samueljackson/git/muon-project-scripts/analysis/tools/:$PATH"
-export PATH="/Users/samueljackson/dev/CASTEP-16.12/obj/darwin_x86_64_gfortran7.0/:$PATH"
-export PATH="/Users/samueljackson/dev/dftbplus-17.1/_build/prog/dftb+/:$PATH"
-export PATH="/usr/local/opt/openssl/bin:$PATH"
-
-export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
-export LESS=" -R "
-alias less='less -m -N -g -i -J --underline-special --SILENT'
-
 # -------------------------------------------------------
-eval "$(direnv hook zsh)"
+# Custom Config Stuff
+# -------------------------------------------------------
 
 # -------------------------------------------------------
 # start a tmux session
