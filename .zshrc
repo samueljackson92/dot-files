@@ -87,7 +87,28 @@ source $ZSH/oh-my-zsh.sh
 # Custom Config Stuff
 # -------------------------------------------------------
 
+source ~/.zshalias
+
+# Add path for miniconda
+export PATH="$PATH:$HOME/miniconda3/bin"
+
 # -------------------------------------------------------
 # start a tmux session
 if [ "$TMUX" = "" ]; then tmux; fi
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/samuel/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/samuel/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/samuel/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/samuel/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
