@@ -1,27 +1,30 @@
-[core]
-	excludesfile = /Users/samueljackson/.gitignore
-[github]
-	user = samueljackson92
-[ghi]
-	token = !security find-internet-password -a samueljackson92 -s github.com -l 'ghi token' -w
+[alias]
+[push]
+	default = simple
 [user]
 	name = Samuel Jackson
 	email = samueljackson@outlook.com
+[core]
+	excludesfile = ~/.gitignore
+	editor = vim
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
 [alias]
+	lo = log --oneline
 	co = checkout
-	cl = clang-format
-	ai = add --interactive
 	st = status
 	c = commit
-        unstage = reset HEAD --
-        undo = reset HEAD~    
-        l = log
-        lo = log --pretty=oneline --abbrev-commit --graph --decorate 
-        dc = diff --cached
-        d = diff
-        update = commit --amend --no-verify --no-edit -a
-[push]
-	default = current
-        
-[credential]
-	helper = osxkeychain
+	d = diff
+[github]
+	user = samueljackson92
+[ghi]
+[ghi]
+[ghi]
+	token = !security find-internet-password -a samueljackson92 -s github.com -l 'ghi token' -w
