@@ -15,12 +15,17 @@ Plugin 'gmarik/Vundle.vim'
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 Plugin 'davidhalter/jedi-vim'
-Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'sheerun/vim-wombat-scheme'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-unimpaired'
-
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'cjrh/vim-conda'
+Plugin 'nvie/vim-flake8'
+Plugin 'tell-k/vim-autopep8'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'craigemery/vim-autotag'
+Plugin 'gabesoft/vim-ags'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -47,13 +52,10 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
-noremap <Leader>/ :Commentary
-
-"tabs to spaces (size 4)
-set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
-
 " set map leader key
-let mapleader=","
+let mapleader="."
+
+nnoremap <leader>/ :CtrlPTag<cr>
 
 " set files to auto reload on edit
 set autoread
@@ -61,11 +63,29 @@ set autoread
 " Trim trailing whitespace in the following file types
 autocmd FileType python,haskell,c,cpp,java,php autocmd BufWritePre <buffer> :%s/\s\+$//e
 
-" YCM Settings
-let g:ycm_path_to_python_interpreter = '/usr/local/bin/python'
-highlight Pmenu ctermfg=15 ctermbg=0 guifg=#ffffff guibg=#000000
-highlight PmenuSel ctermfg=15 ctermbg=4 guifg=#ffffff guibg=#444444
+" Set options for Markdown
+autocmd FileType markdown setlocal textwidth=80 spell
 
 " NERDTree
-let mapleader = "\\"
 map <leader>n :NERDTreeToggle<CR>
+
+let g:conda_startup_msg_suppress = 1
+"tabs to spaces (size 4)
+set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
+
+let g:jedi#popup_on_dot = 0
+
+"Synatstic Settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_python_python_exec = '/home/lhs18285/miniconda3/bin/python'
+let g:syntastic_python_pyflakes_exe = '/home/lhs18285/miniconda3/bin/python3 -m pyflakes'
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_python_checkers = ['flake8', 'pyflakes', 'python']
+let g:syntastic_python_flake8_post_args='--ignore=E501,E128,E225'

@@ -5,7 +5,7 @@
 	name = Samuel Jackson
 	email = samueljackson@outlook.com
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = /home/lhs18285/.gitignore
 	editor = vim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
