@@ -1,5 +1,3 @@
-name = Samuel Jackson
-email = samueljackson@outlook.com
 [alias]
         lo = log --oneline
         co = checkout
@@ -11,3 +9,8 @@ email = samueljackson@outlook.com
 	email = samuel.jackson@stfc.ac.uk
 [push]
 	default = simple
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
