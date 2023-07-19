@@ -1,3 +1,0 @@
-# Shortcut to pdflatex
-alias pdflatex='/usr/texbin/pdflatex'
-alias scarf='ssh lhs18285@scarf.rl.ac.uk'
